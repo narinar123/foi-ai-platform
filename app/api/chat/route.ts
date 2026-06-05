@@ -46,10 +46,10 @@ Always be direct, actionable, and professional. When you execute tasks, show you
       system: systemPrompt,
       messages,
       temperature: 0.7,
-      maxTokens: 2048,
+      maxOutputTokens: 2048,
     })
 
-    return result.toDataStreamResponse()
+    return result.toTextStreamResponse()
   } catch (error: any) {
     console.error('Chat API error:', error)
     return new Response(

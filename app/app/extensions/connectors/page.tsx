@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Globe, Monitor, Apple, LayoutGrid, Mail, Database,
-  GitBranch, Slack, Trello, Zap, Plus, RotateCcw,
+  GitBranch, Zap, Plus, RotateCcw,
   Check, X, Search, ExternalLink
 } from 'lucide-react'
 import styles from './ConnectorsPage.module.css'

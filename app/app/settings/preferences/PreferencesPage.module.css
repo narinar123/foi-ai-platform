@@ -1,0 +1,223 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-base);
+  overflow: hidden;
+}
+
+.backBar {
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.backBtn {
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--duration-fast);
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+}
+
+.backBtn:hover { color: var(--text-primary); }
+
+.content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Left Sidebar */
+.sidebar {
+  width: 200px;
+  min-width: 200px;
+  padding: 20px 8px;
+  border-right: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sideSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sideSectionLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 6px 10px 4px;
+}
+
+.sideItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  text-align: left;
+  width: 100%;
+  font-family: var(--font-sans);
+}
+
+.sideItem:hover {
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+}
+
+.sideItemActive {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.betaBadge {
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: var(--radius-full);
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--color-info);
+  font-weight: 600;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 32px 40px;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  margin-bottom: 28px;
+}
+
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 700px;
+}
+
+.settingRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.settingRow:last-child { border-bottom: none; }
+
+.settingInfo { flex: 1; min-width: 0; }
+
+.settingLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.settingDesc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+/* Select Control */
+.settingControl {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.select {
+  appearance: none;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  padding: 8px 32px 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  cursor: pointer;
+  min-width: 160px;
+  font-family: var(--font-sans);
+  transition: border-color var(--duration-fast);
+}
+
+.select:focus { border-color: var(--brand-primary); outline: none; }
+
+.selectArrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  font-size: 11px;
+}
+
+/* Toggle */
+.toggle { position: relative; display: inline-block; cursor: pointer; flex-shrink: 0; margin-top: 2px; }
+.toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.toggleTrack {
+  display: block;
+  width: 44px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-default);
+  transition: all var(--duration-normal);
+  position: relative;
+}
+
+.toggle input:checked ~ .toggleTrack {
+  background: var(--brand-primary);
+  border-color: transparent;
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.toggle input:checked ~ .toggleTrack .toggleThumb {
+  transform: translateX(20px);
+  background: #000;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-default);
+  margin: 8px 0;
+}

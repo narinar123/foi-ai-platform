@@ -1,0 +1,25 @@
+.page { padding: 32px 40px; overflow-y: auto; height: 100vh; }
+.header { margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
+.titleRow { display: flex; align-items: center; gap: 10px; }
+.title { font-size: 22px; font-weight: 700; color: var(--text-primary); }
+.subtitle { font-size: 13px; color: var(--text-muted); }
+.addBtn { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--brand-primary); color: #000; border: none; border-radius: var(--radius-md); font-size: 13px; font-weight: 600; cursor: pointer; width: fit-content; margin-top: 8px; font-family: var(--font-sans); transition: opacity var(--duration-fast); }
+.addBtn:hover { opacity: 0.9; }
+.empty { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 80px 20px; color: var(--text-muted); text-align: center; }
+.empty p { font-size: 15px; font-weight: 500; color: var(--text-secondary); }
+.empty span { font-size: 13px; }
+.list { display: flex; flex-direction: column; gap: 6px; }
+.taskRow { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--glass-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); transition: all var(--duration-fast); }
+.taskRow:hover { background: var(--glass-hover); border-color: var(--border-default); }
+.paused { opacity: 0.6; }
+.statusDot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dotActive { background: var(--brand-primary); box-shadow: 0 0 8px rgba(74,222,128,0.5); animation: pulse 2s ease-in-out infinite; }
+.dotPaused { background: var(--text-muted); }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+.taskInfo { flex: 1; min-width: 0; }
+.taskName { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+.taskMeta { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text-muted); margin-top: 4px; flex-wrap: wrap; }
+.dot { color: var(--border-strong); }
+.taskActions { display: flex; gap: 4px; }
+.actionBtn { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); color: var(--text-muted); cursor: pointer; transition: all var(--duration-fast); background: none; border: none; }
+.actionBtn:hover { background: var(--bg-hover); color: var(--text-secondary); }

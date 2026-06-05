@@ -1,0 +1,30 @@
+.page { padding: 32px 40px; overflow-y: auto; height: 100vh; }
+.header { margin-bottom: 20px; }
+.titleRow { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.title { font-size: 22px; font-weight: 700; color: var(--text-primary); }
+.subtitle { font-size: 13px; color: var(--text-muted); }
+.categories { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+.catBtn { padding: 6px 14px; border-radius: var(--radius-full); font-size: 12.5px; font-weight: 500; color: var(--text-muted); background: var(--bg-elevated); border: 1px solid var(--border-subtle); cursor: pointer; transition: all var(--duration-fast); font-family: var(--font-sans); }
+.catBtn:hover { color: var(--text-secondary); border-color: var(--border-default); }
+.catActive { color: var(--brand-primary); background: var(--brand-primary-dim); border-color: rgba(74,222,128,0.3); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.card { background: var(--glass-bg); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 16px; display: flex; flex-direction: column; gap: 10px; transition: all var(--duration-fast); }
+.card:hover { border-color: var(--border-default); background: var(--glass-hover); }
+.cardActive { border-color: rgba(74,222,128,0.2); }
+.cardTop { display: flex; align-items: center; justify-content: space-between; }
+.icon { font-size: 22px; }
+.badges { display: flex; align-items: center; gap: 5px; }
+.catTag { font-size: 10px; padding: 2px 8px; border-radius: var(--radius-full); background: var(--bg-overlay); color: var(--text-muted); }
+.proBadge { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: var(--radius-full); background: rgba(167,139,250,0.15); color: var(--brand-accent); letter-spacing: 0.5px; }
+.cardName { font-size: 13.5px; font-weight: 600; color: var(--text-primary); }
+.cardDesc { font-size: 12px; color: var(--text-muted); line-height: 1.6; flex: 1; }
+.cardFoot { display: flex; align-items: center; }
+.proBtn { display: flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; color: var(--brand-accent); background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); cursor: pointer; font-family: var(--font-sans); }
+.toggle { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.toggleTrack { display: block; width: 36px; height: 20px; border-radius: var(--radius-full); background: var(--bg-overlay); border: 1px solid var(--border-default); transition: all var(--duration-normal); position: relative; flex-shrink: 0; }
+.toggle input:checked ~ .toggleTrack { background: var(--brand-primary); border-color: transparent; }
+.toggleThumb { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: rgba(255,255,255,0.5); transition: all var(--duration-normal) var(--ease-out); }
+.toggle input:checked ~ .toggleTrack .toggleThumb { transform: translateX(16px); background: #000; }
+.toggleLabel { font-size: 12px; color: var(--text-muted); }
+.toggle input:checked ~ .toggleLabel { color: var(--brand-primary); }

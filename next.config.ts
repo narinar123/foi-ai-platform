@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' },
+    ],
+  },
+  // Allow importing styles from parent directory styles folder
+  transpilePackages: [],
+}
 
-export default nextConfig;
+export default nextConfig

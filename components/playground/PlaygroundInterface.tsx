@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useChat } from 'ai/react'
+import { useChat } from '@ai-sdk/react'
 import { Bot, Send, User } from 'lucide-react'
 import styles from './Playground.module.css'
 

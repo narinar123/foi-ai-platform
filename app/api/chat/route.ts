@@ -53,9 +53,9 @@ Always be direct, actionable, and professional. When you execute tasks, show you
           description: 'Trigger a webhook or external automation (like n8n)',
           parameters: z.object({
             webhookUrl: z.string().describe('The URL of the webhook to trigger'),
-            payload: z.any().describe('The JSON payload to send')
+            payload: z.string().describe('The JSON payload to send')
           }),
-          execute: async ({ webhookUrl, payload }) => {
+          execute: async ({ webhookUrl, payload }: { webhookUrl: string, payload: string }) => {
             return `[Webhook Triggered] Successfully sent payload to ${webhookUrl}. Result: OK`;
           }
         }),
@@ -64,7 +64,7 @@ Always be direct, actionable, and professional. When you execute tasks, show you
           parameters: z.object({
             workflowId: z.string().describe('The ID of the workflow to execute (e.g. "deploy", "scrape", "analyze")')
           }),
-          execute: async ({ workflowId }) => {
+          execute: async ({ workflowId }: { workflowId: string }) => {
             return `[Workflow Executed] Successfully initiated backend workflow: ${workflowId}`;
           }
         }),
@@ -73,7 +73,7 @@ Always be direct, actionable, and professional. When you execute tasks, show you
           parameters: z.object({
             query: z.string().describe('The search query')
           }),
-          execute: async ({ query }) => {
+          execute: async ({ query }: { query: string }) => {
             return `[Web Search Completed] Found relevant real-time information for: "${query}". (Simulated results for security)`;
           }
         })

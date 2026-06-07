@@ -109,6 +109,10 @@ export default function Sidebar() {
           <MessageSquare size={14} /><span>IM Channel</span>
           {notifications > 0 && <span className={styles.notifBadge}>{notifications}</span>}
         </button>
+
+        <button className={`${styles.navItem} ${isActive('/app/playground') ? styles.active : ''}`} onClick={() => nav('/app/playground')}>
+          <Sparkles size={14} /><span>Arena Playground</span>
+        </button>
       </nav>
 
       {/* Tabs */}

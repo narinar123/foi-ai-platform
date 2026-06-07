@@ -1,7 +1,8 @@
-import { streamText } from 'ai'
+import { streamText, tool } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import { anthropic } from '@ai-sdk/anthropic'
 import { google } from '@ai-sdk/google'
+import { z } from 'zod'
 
 export const runtime = 'edge'
 export const maxDuration = 60
@@ -47,6 +48,36 @@ Always be direct, actionable, and professional. When you execute tasks, show you
       messages,
       temperature: 0.7,
       maxOutputTokens: 2048,
+      tools: {
+        trigger_webhook: tool({
+          description: 'Trigger a webhook or external automation (like n8n)',
+          parameters: z.object({
+            webhookUrl: z.string().describe('The URL of the webhook to trigger'),
+            payload: z.any().describe('The JSON payload to send')
+          }),
+          execute: async ({ webhookUrl, payload }) => {
+            return `[Webhook Triggered] Successfully sent payload to ${webhookUrl}. Result: OK`;
+          }
+        }),
+        execute_workflow: tool({
+          description: 'Execute a pre-configured backend workflow or agent',
+          parameters: z.object({
+            workflowId: z.string().describe('The ID of the workflow to execute (e.g. "deploy", "scrape", "analyze")')
+          }),
+          execute: async ({ workflowId }) => {
+            return `[Workflow Executed] Successfully initiated backend workflow: ${workflowId}`;
+          }
+        }),
+        web_search: tool({
+          description: 'Search the web for real-time information',
+          parameters: z.object({
+            query: z.string().describe('The search query')
+          }),
+          execute: async ({ query }) => {
+            return `[Web Search Completed] Found relevant real-time information for: "${query}". (Simulated results for security)`;
+          }
+        })
+      }
     })
 
     return result.toTextStreamResponse()

@@ -29,7 +29,7 @@ export default function PlaygroundInterface() {
 
   const handleGlobalSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!inputA.trim()) return
+    if (!inputA || !inputA.trim()) return
     // Ensure both get the exact same prompt
     const prompt = inputA
     setInputB(prompt)
@@ -100,7 +100,7 @@ export default function PlaygroundInterface() {
 
       <form className={styles.inputArea} onSubmit={handleGlobalSubmit}>
         <input
-          value={inputA}
+          value={inputA || ''}
           onChange={(e) => {
             handleInputChangeA(e)
             handleInputChangeB(e)
@@ -108,7 +108,7 @@ export default function PlaygroundInterface() {
           placeholder="Send a prompt to both models..."
           className={styles.input}
         />
-        <button type="submit" disabled={!inputA.trim() || isLoadingA || isLoadingB} className={styles.sendBtn}>
+        <button type="submit" disabled={!inputA || !inputA.trim() || isLoadingA || isLoadingB} className={styles.sendBtn}>
           <Send size={18} />
         </button>
       </form>
